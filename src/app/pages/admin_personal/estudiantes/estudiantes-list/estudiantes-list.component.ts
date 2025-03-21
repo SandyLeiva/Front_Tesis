@@ -133,7 +133,7 @@ export class EstudiantesListComponent implements OnInit, OnChanges{
   selectAlumno(alumno: Alumno): void {
     this.alumnoSeleccionadoEvent.emit(alumno);
   }
-
+  
   onEditPadre(alumno: Alumno): void {
     this.editAlumno.emit(alumno);
   }

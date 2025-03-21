@@ -16,14 +16,12 @@
       class="border px-3 py-2 rounded w-full mt-1 bg-gray-100" readonly>
   </div>
 
-  <!-- Tabla de Padres -->
   <div *ngIf="showPadreDatatable" class="mb-6">
     <app-padres-list (padreSeleccionadoEvent)="onPadreSeleccionado($event)"
       (padreGuardadoEvent)="onPadreGuardado($event)" [enableSelection]="true">
     </app-padres-list>
   </div>
 
-  <!-- Tabla de Estudiantes -->
   <div *ngIf="showAlumnosList" class="mb-6">
     <app-estudiantes-list
       (alumnoSeleccionadoEvent)="onAlumnoSeleccionado($event)"
@@ -34,7 +32,6 @@
 
   <h2 class="text-xl font-semibold mb-4 text-gray-800">Alumnos Seleccionados</h2>
 
-  <!-- Tabla de alumnos -->
   <div class="overflow-x-auto">
     <table class="w-full border-collapse border border-gray-300">
       <thead>

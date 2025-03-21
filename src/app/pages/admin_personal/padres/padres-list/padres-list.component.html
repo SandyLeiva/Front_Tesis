@@ -15,8 +15,7 @@
             id="padres-search"
             [(ngModel)]="searchText"
             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-            placeholder="Buscar por DNI"
-          />
+            placeholder="Buscar por DNI"/>
           </div>
         </form>
       </div>
@@ -54,6 +53,9 @@
                   <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.fecha_nacimiento }}</td>
                   <td class="p-4 space-x-2 text-center whitespace-nowrap">
                     <div class="acciones items-center justify-center flex flex-col sm:flex-row sm:space-x-2">
+                      <button *ngIf="enableSelection" (click)="onSelectPadre(padre, $event)" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:ring-blue-200">
+                        Seleccionar
+                      </button>
                       <button *ngIf="!enableSelection"
                       (click)="abrirModalEdit(padre)" class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-70 rounded-lg focus:ring-4 focus:ring-primary-300">
                       <i class="fas fa-edit mr-2"></i>Editar
@@ -70,7 +72,6 @@
         </div>
       </div>
     </div>
-
 
     <app-padre-add (cerrarModalEvent)="recargar()" (padreGuardadoEvent)="onPadreGuardado($event)"></app-padre-add>
 
