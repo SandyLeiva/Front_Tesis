@@ -1,0 +1,60 @@
+<div *ngIf="isOpen" class="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 z-80 modal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+
+    <div class="modal-content">
+      <h3 class="text-lg font-medium text-gray-900" id="modal-title">Editar Padre</h3>
+          <div class="">
+            <div *ngIf="padre" class="">
+              <div class="mt-2 mb-3">
+                <form class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="mt-2">
+                    <label for="codigo" class="block text-sm font-medium text-gray-700">Código</label>
+                    <input [value]="padre.codigo" (input)="updatePadre($event, 'codigo')" class="w-full px-4 py-2 border rounded-lg" placeholder="Código" disabled/>
+                  </div>
+                  <div class="mt-2">
+                    <label for="apellidos_nombres" class="block text-sm font-medium text-gray-700">Nombres y Apeelidos</label>
+                    <input [value]="padre.apellidos_nombres" (input)="updatePadre($event, 'apellidos_nombres')" class="w-full mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600" placeholder="Apellidos y Nombres"/>
+                  </div>
+                  <div class="mt-2">
+                    <label for="parentesco" class="block text-sm font-medium text-gray-700">Parentesco</label>
+                    <input [value]="padre.parentesco" (input)="updatePadre($event, 'parentesco')" class="w-full mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600" placeholder="Parentesco"/>
+                  </div>
+                  <div class="mt-2">
+                    <label for="dni" class="block text-sm font-medium text-gray-700">DNI</label>
+                    <input [value]="padre.dni" (input)="updatePadre($event, 'dni')" class="w-full mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600" placeholder="DNI"/>
+                  </div>
+                  <div class="mt-2">
+                    <label for="ocupacion" class="block text-sm font-medium text-gray-700">Ocupación</label>
+                    <input [value]="padre.ocupacion" (input)="updatePadre($event, 'ocupacion')" class="w-full mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600" placeholder="Ocupación"/>
+                  </div>
+                  <div class="mt-2">
+                    <label for="centro_trabajo" class="block text-sm font-medium text-gray-700">Centro de Trabajo</label>
+                    <input [value]="padre.centro_trabajo" (input)="updatePadre($event, 'centro_trabajo')" class="w-full mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600" placeholder="Centro de Trabajo"/>
+                  </div>
+                  <div class="mt-2">
+                    <label for="direccion" class="block text-sm font-medium text-gray-700">Dirección</label>
+                    <input [value]="padre.direccion" (input)="updatePadre($event, 'direccion')" class="w-full mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600" placeholder="Dirección"/>
+                  </div>
+                  <div class="mt-2">
+                    <label for="telefono_celular" class="block text-sm font-medium text-gray-700">Celular</label>
+                    <input [value]="padre.telefono_celular" (input)="updatePadre($event, 'telefono_celular')" class="w-full mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600" placeholder="Teléfono Celular"/>
+                  </div>
+                  <div class="mt-2">
+                    <label for="estado_civil" class="block text-sm font-medium text-gray-700">Estado Civil</label>
+                    <input [value]="padre.estado_civil" (input)="updatePadre($event, 'estado_civil')" class="w-full mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600" placeholder="Estado Civil"/>
+                  </div>
+                  <div class="mt-2">
+                    <label for="fecha_nacimiento" class="block text-sm font-medium text-gray-700">Fecha de Nacimiento</label>
+                    <input [value]="padre.fecha_nacimiento" (input)="updatePadre($event, 'fecha_nacimiento')" type="date" class="w-full mt-2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600" placeholder="Fecha de Nacimiento" [max]="fechaMaximaPermitida"/>
+                  </div>
+                </form>
+              <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse col-span-1 sm:col-span-2">
+                <button (click)="actualizarPadre()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary-70 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 sm:ml-3 sm:w-auto sm:text-sm">
+                  Actualizar
+                </button>
+                <button (click)="cerrarModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          </div>
+  </div>

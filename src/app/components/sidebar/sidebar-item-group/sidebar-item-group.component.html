@@ -1,0 +1,9 @@
+<div>
+  <div (click)="toggleOpen()" class="cursor-pointer">
+    <ng-content select="app-sidebar-item"></ng-content>
+  </div>
+  <div *ngIf="isOpen">
+    <ng-content></ng-content>
+  </div>
+</div>
+

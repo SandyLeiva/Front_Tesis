@@ -1,0 +1,21 @@
+<aside class="sidebar" [ngClass]="{ 'sidebar-open': !(sidebarService.$collapsed | async), 'sidebar-closed': (sidebarService.$collapsed | async) }">
+  <div class="flex h-full flex-col divide-y divide-gray-200 overflow-y-auto py-1 pr-3 pl-2" [ngClass]="extraClass">
+    <ng-container *ngFor="let route of routes">
+      <ng-container *ngIf="!route.group; else groupTemplate">
+        <app-sidebar-item [images]="route.images" [link]="route.href">{{ route.title }}</app-sidebar-item>
+      </ng-container>
+      <ng-template #groupTemplate>
+        <div (click)="toggleGroup(route.title)" class="cursor-pointer">
+          <app-sidebar-item class="sidebar-items" [images]="route.images" [link]="'#'">{{ route.title }}</app-sidebar-item>
+        </div>
+        <ng-container *ngIf="isGroupOpen(route.title)">
+          <ng-container *ngFor="let subRoute of getSubRoutes(route)">
+            <div [ngClass]="{ 'ml-open': !(sidebarService.$collapsed | async), 'ml-closed': (sidebarService.$collapsed | async) }">
+              <app-sidebar-item [images]="subRoute.images" [link]="subRoute.href">{{ subRoute.title }}</app-sidebar-item>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-template>
+    </ng-container>
+  </div>
+</aside>

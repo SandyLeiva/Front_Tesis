@@ -1,0 +1,14 @@
+<div class="container-fluid d-flex flex-column vh-100">
+  <app-header></app-header>
+
+  <div class="d-flex flex-grow-1 overflow-hidden">
+    <app-sidebar [routes]="components" extraClass="border-r"></app-sidebar>
+
+    <main class="flex-grow-1 overflow-auto p-4" [ngClass]="{ 'main-collapsed': sidebarService.$collapsed | async, 'main-expanded': !(sidebarService.$collapsed | async) }">
+      <div style="margin-top: 4rem; padding-left: 20px; padding-right: 20px; margin-bottom: 20px;">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+  <app-footer class="footer" [ngClass]="{ 'footer-collapsed': sidebarService.$collapsed | async }"></app-footer>
+</div>

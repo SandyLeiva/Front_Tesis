@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #181818;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Añadir al archivo CSS general de la aplicación */
+main {
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.main-collapsed {
+  margin-left: 4rem; /* Ancho del sidebar cuando está cerrado */
+}
+
+.main-expanded {
+  margin-left: 16rem; /* Ancho del sidebar cuando está abierto */
+}
+
+.bg-primary-70{
+  background-color: #103370;
+}
+
+.bg-primary-70:hover{
+  background-color: #092452;
+}
+
+.color_red{
+  background-color: #b82828;
+}
+

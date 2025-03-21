@@ -1,0 +1,77 @@
+<div class="pb-4 bg-white contenedor-padres block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5">
+  <div class="w-full mb-1">
+    <div class="mb-4">
+      <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl">
+        Lista de Padres
+      </h1>
+    </div>
+    <div class="justify-between block sm:flex">
+      <div class="flex w-full mb-4 sm:mb-0">
+        <form class="w-full max-w-md">
+          <label for="padres-search" class="sr-only">Buscar</label>
+          <div class="relative w-full">
+            <input
+            name="search"
+            id="padres-search"
+            [(ngModel)]="searchText"
+            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+            placeholder="Buscar por DNI"
+          />
+          </div>
+        </form>
+      </div>
+      <div class="flex justify-center w-full sm:w-auto">
+        <button id="createProductButton" class="w-full sm:w-auto inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-70 focus:ring-4 focus:ring-primary-300"
+        type="button" (click)="abrirModalAdd()">
+          <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path>
+          </svg>
+          Añadir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="flex flex-col">
+      <div class="overflow-x-auto">
+        <div class="inline-block min-w-full align-middle">
+          <div class="overflow-hidden shadow">
+            <table class="min-w-full divide-y divide-gray-200 table-fixed">
+              <thead class="bg-gray-100" [appEncabezadoDinamico]="encabezados"></thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr *ngFor="let padre of padres | filter:searchText:'dni'; let i = index" class="hover:bg-gray-100">
+                  <td class="p-4 text-base font-normal text-gray-500 whitespace-nowrap">{{ i + 1 }}</td>
+                  <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.codigo }}</td>
+                  <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.apellidos_nombres }}</td>
+                  <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.parentesco }}</td>
+                  <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.dni }}</td>
+                  <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.ocupacion }}</td>
+                  <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.centro_trabajo }}</td>
+                  <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.direccion }}</td>
+                  <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.telefono_celular }}</td>
+                  <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.estado_civil }}</td>
+                  <td class="p-4 text-sm text-center font-normal text-gray-500 whitespace-nowrap">{{ padre.fecha_nacimiento }}</td>
+                  <td class="p-4 space-x-2 text-center whitespace-nowrap">
+                    <div class="acciones items-center justify-center flex flex-col sm:flex-row sm:space-x-2">
+                      <button *ngIf="!enableSelection"
+                      (click)="abrirModalEdit(padre)" class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-70 rounded-lg focus:ring-4 focus:ring-primary-300">
+                      <i class="fas fa-edit mr-2"></i>Editar
+                      </button>
+                      <button (click)="abrirPanelDelete(padre)" class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300">
+                        <i class="fas fa-trash mr-2"></i>Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <app-padre-add (cerrarModalEvent)="recargar()" (padreGuardadoEvent)="onPadreGuardado($event)"></app-padre-add>
+
+    <app-padre-edit (cerrarModalEvent)="recargar()" (padreActualizadoEvent)="recargar()"></app-padre-edit>

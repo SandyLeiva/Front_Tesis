@@ -1,0 +1,23 @@
+@media (max-width: 680px) {
+
+  .contenedor-padres {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contenedor-padres button {
+    width: 100%;
+  }
+  td .acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espaciado entre botones */
+    align-items: center;
+  }
+  td button {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    align-content: center;
+  }
+}

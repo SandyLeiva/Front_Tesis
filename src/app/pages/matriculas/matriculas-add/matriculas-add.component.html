@@ -1,0 +1,98 @@
+<div class="container mx-auto p-6 bg-white shadow-lg rounded-lg">
+  <h1 class="text-2xl font-semibold mb-6 text-gray-800">Registro de Matrícula</h1>
+
+  <!-- Botón para seleccionar Padre -->
+  <div class="flex space-x-4 mb-6">
+    <button (click)="openPadreDatatable()"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded transition">
+      Seleccionar Padre
+    </button>
+  </div>
+
+  <!-- Campo del Padre Seleccionado -->
+  <div class="mb-6">
+    <label for="campoPadre" class="font-medium text-gray-700">Padre Seleccionado:</label>
+    <input type="text" id="campoPadre" name="campoPadre"
+      class="border px-3 py-2 rounded w-full mt-1 bg-gray-100" readonly>
+  </div>
+
+  <!-- Tabla de Padres -->
+  <div *ngIf="showPadreDatatable" class="mb-6">
+    <app-padres-list (padreSeleccionadoEvent)="onPadreSeleccionado($event)"
+      (padreGuardadoEvent)="onPadreGuardado($event)" [enableSelection]="true">
+    </app-padres-list>
+  </div>
+
+  <!-- Tabla de Estudiantes -->
+  <div *ngIf="showAlumnosList" class="mb-6">
+    <app-estudiantes-list
+      (alumnoSeleccionadoEvent)="onAlumnoSeleccionado($event)"
+      (alumnoGuardadoEvent)="onAlumnoGuardado($event)"
+      [enableSelection]="true">
+    </app-estudiantes-list>
+  </div>
+
+  <h2 class="text-xl font-semibold mb-4 text-gray-800">Alumnos Seleccionados</h2>
+
+  <!-- Tabla de alumnos -->
+  <div class="overflow-x-auto">
+    <table class="w-full border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-gray-100 text-gray-700">
+          <th class="border border-gray-300 px-4 py-2 text-left">Nombre</th>
+          <th class="border border-gray-300 px-4 py-2 text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alumno of alumnosSeleccionados; let i = index" class="hover:bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2">{{ alumno.nombres }} {{ alumno.apellidos }}</td>
+          <td class="border border-gray-300 px-4 py-2 text-center">
+            <button (click)="eliminarAlumnoSeleccionado(i)"
+              class="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded transition">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Botón para agregar alumnos -->
+  <button (click)="openAlumnosList()"
+    class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 mt-4 rounded transition">
+    Agregar Alumnos
+  </button>
+
+  <!-- Campos de matrícula -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+    <div>
+      <label for="codMatricula" class="font-medium text-gray-700">Código de Matrícula:</label>
+      <input type="text" id="codMatricula" [(ngModel)]="cod_matricula"
+        class="border px-3 py-2 rounded w-full mt-1">
+    </div>
+    <div>
+      <label for="fechaMatricula" class="font-medium text-gray-700">Fecha de Matrícula:</label>
+      <input type="date" id="fechaMatricula" [(ngModel)]="fecha_matricula"
+        class="border px-3 py-2 rounded w-full mt-1">
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+    <div>
+      <label for="periodo" class="font-medium text-gray-700">Periodo:</label>
+      <input type="text" id="periodo" [(ngModel)]="periodo"
+        class="border px-3 py-2 rounded w-full mt-1">
+    </div>
+    <div>
+      <label for="conceptoPago" class="font-medium text-gray-700">Concepto de Pago:</label>
+      <input type="text" id="conceptoPago" [(ngModel)]="concepto_pago"
+        class="border px-3 py-2 rounded w-full mt-1">
+    </div>
+  </div>
+
+  <!-- Botón Guardar -->
+  <button (click)="saveMatricula()"
+    class="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-2 mt-6 rounded transition">
+    Guardar
+  </button>
+</div>

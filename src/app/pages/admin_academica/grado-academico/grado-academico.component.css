@@ -1,0 +1,54 @@
+.modal {
+  z-index: 1050 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 500px; /* Máximo en pantallas grandes */
+}
+
+@media (max-width: 680px) {
+  .modal-content {
+    max-width: 90%; /* Ajuste para móviles */
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .modal-buttons button {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .contenedor-nivel-educativo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contenedor-nivel-educativo button {
+    width: 100%;
+  }
+  td .acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espaciado entre botones */
+    align-items: center;
+  }
+  td button {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    align-content: center;
+  }
+}

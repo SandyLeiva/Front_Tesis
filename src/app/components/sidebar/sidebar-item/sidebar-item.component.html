@@ -1,0 +1,14 @@
+<a
+  class="group hov flex cursor-pointer items-center rounded-lg text-base font-normal"
+  [routerLink]="link !== '#' ? link : null"
+  routerLinkActive="bg-a"
+  [routerLinkActiveOptions]="{ exact: true }"
+>
+  <span class="flex-shrink-0" *ngIf="images">
+    <lucide-icon [name]="images"></lucide-icon>
+  </span>
+  <span class="flex-1 whitespace-nowrap" [class.ml-3]="!!images" *ngIf="(sidebarService.$collapsed | async) === false">
+    <ng-content></ng-content>
+  </span>
+</a>
+

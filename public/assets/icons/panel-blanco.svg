@@ -1,0 +1,7 @@
+<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+          class="mr-6 h-6 w-6 cursor-pointer text-white" height="1em" width="1em"
+          xmlns="http://www.w3.org/2000/svg" (click)="sidebarService.toggleCollapsed()">
+         <path fill-rule="evenodd"
+               d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"
+               clip-rule="evenodd"></path>
+        </svg>

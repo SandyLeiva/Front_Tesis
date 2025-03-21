@@ -1,0 +1,13 @@
+.hov:hover{
+ background-color: #cccccc;
+}
+.bg-a{
+  background-color: #cccccc;
+ }
+.hov{
+  margin-top: 11px;
+  margin-bottom: 11px;
+  padding: 9px;
+  text-align: start;
+  font-size: 14px;
+}

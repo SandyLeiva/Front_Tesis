@@ -1,0 +1,55 @@
+.modal {
+  z-index: 1050 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; /* Permite scroll en pantallas pequeñas */
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh; /* Limita la altura del modal */
+  overflow-y: auto; /* Habilita scroll solo dentro del modal */
+}
+
+@media (max-width: 680px) {
+  .modal-content {
+    max-width: 90%; /* Ajuste para móviles */
+    max-height: 85vh; /* Ajuste para pantallas pequeñas */
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .modal-buttons button {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+  }
+  td .acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espaciado entre botones */
+    align-items: center;
+  }
+  td button {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    align-content: center;
+  }
+}

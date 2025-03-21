@@ -1,0 +1,62 @@
+<header class="antialiased custom-header">
+  <nav class="border-red-200 px-3 lg:px-1 py-1 cm color_red" >
+    <div class="flex flex-wrap justify-between items-center">
+      <div class="flex justify-start items-center">
+        <app-navbar extraClass="border-b" [fluid]="true">
+          <div class="flex items-center">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+            class="mr-6 h-6 w-6 cursor-pointer text-white" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg" (click)="sidebarService.toggleCollapsed()">
+           <path fill-rule="evenodd"
+                 d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"
+                 clip-rule="evenodd"></path>
+          </svg>
+            <a class="cursor-pointer text-white text-xl lg:pr-12 font-semibold" routerLink="">Cristo Rey</a>
+          </div>
+
+        </app-navbar>
+      </div>
+      <div class="flex items-center lg:order-2 lg:px-6">
+          <button type="button"
+            class="flex mx-3 text-sm bg-gray-700 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300"
+            id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
+            <span class="sr-only">Open user menu</span>
+            <img class="w-8 h-8 rounded-full" src="assets/icons/insignia_colegio.png"
+              alt="user photo">
+          </button>
+          <!-- Dropdown menu -->
+          <div
+            class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-200 shadow"
+            id="dropdown">
+            <div class="py-3 px-4">
+              <span class="block text-sm font-semibold text-gray-900 dark:text-white">{{  username | uppercase}}</span>
+              <span class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ email}}</span>
+            </div>
+            <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
+              <li>
+                <a href="#"
+                  class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Mi Perfil</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block py-2 px-4 text-sm hover:bg-gray-100">Configuraciones</a>
+              </li>
+            </ul>
+            <ul class="py-1 text-gray-500" aria-labelledby="dropdown">
+              <li>
+                <a href="#"
+                class="flex items-center py-2 px-4 text-sm hover:bg-gray-100" (click)="logout()">
+                <svg class="mr-2 w-5 h-5 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 16 16">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 8h11m0 0-4-4m4 4-4 4m-5 3H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3" />
+              </svg>
+                  Cerrar Sesión
+                </a>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </nav>
+</header>
